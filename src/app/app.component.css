@@ -1,0 +1,27 @@
+
+:host ::ng-deep .p-organizationchart .p-organizationchart-line-down{ 
+    
+    background: black;
+}
+
+:host ::ng-deep .p-organizationchart .p-organizationchart-lines .p-organizationchart-line-right{ 
+    border-color: black;
+
+}
+
+:host ::ng-deep .p-organizationchart .p-organizationchart-node-content .p-avatar-circle{
+    border:2px solid blue;
+}
+
+:host ::ng-deep .p-organizationchart .p-organizationchart-lines .p-organizationchart-line-left{ 
+    border-color: black;
+}
+
+:host ::ng-deep .p-organizationchart .p-organizationchart-lines .p-organizationchart-line-top{ 
+    border-color: black;
+}
+ 
+.title{
+    background-color: #98FB98;
+}
+
