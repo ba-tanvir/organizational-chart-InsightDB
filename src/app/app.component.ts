@@ -138,7 +138,7 @@ downloadCanvas(event:any) {
    downloadjs(dataURL, 'download.png', 'image/png');
   }
 
-  };
+};
 
 
 

@@ -1,6 +1,12 @@
 # OrganizationalChart
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.3.
+This project is made to visualize organizational hierarchies through a chart. Organizational charts are multi level charts organization specific levels of command. The is given in a node format, which is equivalent of JSON and PrimeNg library is responsible for rendering the data. Each node has the option to have a children. Children nodes are shown in the below level of the parent node. Each subtree from the parent node can be expanded or minimized. Color of each subtree is different for understanding the graph from a distance. 
+
+# Technologies Used
+--> Angularjs (16)
+--> PrimeNg (Graph renderer)
+--> PrimeFace (Modifying the style of the graph)
+--> html2Canvas && downloadjs (for downloading the graph)
 
 ## Development server
 
