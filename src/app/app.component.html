@@ -4,6 +4,15 @@
   <p-organizationChart   [value]="data"  selectionMode="single">
     <ng-template let-node pTemplate="person">
         <div class="card">
+            <div *ngIf="node.children">
+                <div *ngIf="node.data.title=='CEO'" class="w-1.5rem h-1rem bg-blue-500 mb-1"></div>
+                <div *ngIf="node.data.title=='CMO'" class="w-2rem h-1rem bg-yellow-500 mb-1"></div>
+                <div *ngIf="node.data.title=='CTO'" class="w-2rem h-1rem bg-teal-500 mb-1"></div>
+                <div *ngIf="node.data.title !='CTO' && node.data.title !='CEO' && node.data.title !='CMO' " class="w-1rem h-1rem bg-indigo-400 mb-1"></div>
+            </div>
+            <div *ngIf="!node.children">
+                <div class="w-1rem h-1rem border-round bg-red-300 mb-1"></div>
+            </div>
             <img crossorigin="anonymous" [src]="node.data.image" class="image" />
             <div class="font-bold">{{ node.data.name }}</div>
             <div class="title">{{ node.data.title }}</div>
@@ -12,5 +21,5 @@
 </p-organizationChart>
 
 </div>
-<button><a href="#" (click)="downloadCanvas($event)"> DOWNLOAD THIS</a></button>
+<button class="bg-blue-400 border-none h-3rem w-9rem text-lg"><a href="#" (click)="handleCaptureClick()">DOWNLOAD</a></button>
 

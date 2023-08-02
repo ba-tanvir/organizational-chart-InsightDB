@@ -1,4 +1,10 @@
 
+:host ::ng-deep .p-organizationchart{
+
+    background-image: url("../assets/background6.png");
+    background-size: cover;
+}
+
 :host ::ng-deep .p-organizationchart .p-organizationchart-line-down{ 
     
     background: black;
@@ -7,10 +13,6 @@
 :host ::ng-deep .p-organizationchart .p-organizationchart-lines .p-organizationchart-line-right{ 
     border-color: black;
 
-}
-
-:host ::ng-deep .p-organizationchart .p-organizationchart-node-content .p-avatar-circle{
-    border:2px solid blue;
 }
 
 :host ::ng-deep .p-organizationchart .p-organizationchart-lines .p-organizationchart-line-left{ 
@@ -24,4 +26,5 @@
 .title{
     background-color: #98FB98;
 }
+
 

@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import * as downloadjs from 'downloadjs';
 import html2canvas from 'html2canvas';
 import { TreeNode } from 'primeng/api';
@@ -9,8 +9,10 @@ import { OrganizationChartModule } from 'primeng/organizationchart';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements AfterViewInit {
+export class AppComponent implements OnInit {
   title = 'organizational-chart';
+  arrayOfColors:String[]=[];
+  
   @ViewChild('organizational-chart') organizationalChart:any;
   data: TreeNode[] = [
     {
@@ -111,34 +113,40 @@ export class AppComponent implements AfterViewInit {
             }
         ]
     }
-];
+  ];
 
-ngAfterViewInit(): void {
-  
- }
+  ngOnInit(): void {
+      this.loadColorsInArray();
+      this.arrayOfColors.map(ele=>{
+        console.log("Eleemnts is ",ele);
+      })
 
-downloadCanvas(event:any) {
-  // get the `<a>` element from click event
-  // var anchor = event.target;
-  // // get the canvas, I'm getting it by tag name, you can do by id
-  // // and set the href of the anchor to the canvas dataUrl
-  // //anchor.href = document.getElementsByTagName('canvas')[0].toDataURL();
-  // //if(event){anchor.href=document.getElementById('dt').toDataURL();}
-  
-  // // set the anchors 'download' attibute (name of the file to be downloaded)
-  // anchor.download = "test.png";
-  this.handleCaptureClick();
-}
-
- handleCaptureClick = async () => {
-  const htmlElement=document.getElementById('organizational-chart');
-  if(htmlElement){
-   const canvas = await html2canvas(htmlElement,{allowTaint:true,useCORS:true});
-   const dataURL = canvas.toDataURL('image/png');
-   downloadjs(dataURL, 'download.png', 'image/png');
+      console.log("Whole data is", this.data);
+      
+      console.log(this.data.map(element=>{
+        console.log("First children is",element.children);
+      }))
   }
 
-};
+  loadColorsInArray(){
+    this.arrayOfColors.push('border-blue-400');
+    this.arrayOfColors.push('border-teal-400');
+    this.arrayOfColors.push('border-yellow-400');
+    this.arrayOfColors.push('border-indigo-400');
+    this.arrayOfColors.push('border-red-400');
+    this.arrayOfColors.push('border-orange-400');
+    this.arrayOfColors.push('border-purple-400');
+  }
+
+  handleCaptureClick = async () => {
+    const htmlElement=document.getElementById('organizational-chart');
+    if(htmlElement){
+    const canvas = await html2canvas(htmlElement,{allowTaint:true,useCORS:true});
+    const dataURL = canvas.toDataURL('image/png');
+    downloadjs(dataURL, 'download.png', 'image/png');
+    }
+
+  };
 
 
 
